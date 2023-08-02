@@ -6,14 +6,24 @@ import SearchIcon from "@mui/icons-material/Search";
 const SearchBar = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
+    const FetchTerm = (value) =>{
+        fetch("https://fakestoreapi.com/products")
+        .then((res)=>res.json())
+        .then((json) => {
+            const results = json.filter((user)=>{
+                return value && user &&
+                user.title && 
+                user.title.toLowerCase().includes(value)
+            })
+            console.log(results)
+        })
+    };
 
-    const handleChange = (event) => {
-      setSearchTerm(event.target.value);
+    const handleChange = (value) => {
+      setSearchTerm(value);
       FetchTerm(value)
     };
-    const FetchTerm = (value) =>{
-        fetch("")
-    }
+   
   return (
     <div>
        <Container maxWidth="md" sx={{ mt: 24 }}>
@@ -22,7 +32,7 @@ const SearchBar = () => {
         type="search"
         label="Search"
         value={searchTerm}
-        onChange={handleChange}
+        onChange={(event) => handleChange(event.target.value)}
         sx={{ width: 800 }}
         InputProps={{
           endAdornment: (
@@ -37,4 +47,4 @@ const SearchBar = () => {
   )
 }
 
-export default SearchBar
+export default SearchBar;
