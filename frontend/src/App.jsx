@@ -1,10 +1,16 @@
+import { useState } from "react"
 import SearchBar from "./components/SearchBar"
+import SearchResults from "./components/SearchResults"
+
 
 function App() {
+  const[results,setResults]= useState([])
 
   return (
-    <SearchBar/>
-    
+    <div>
+    <SearchBar setResults={setResults}/>
+    <SearchResults results={results}/>
+    </div>
       )
       }
 
