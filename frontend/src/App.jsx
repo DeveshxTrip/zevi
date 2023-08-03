@@ -1,6 +1,7 @@
 import { useState } from "react"
 import SearchBar from "./components/SearchBar"
 import SearchResults from "./components/SearchResults"
+import Products from "./Products"
 
 
 function App() {
@@ -8,8 +9,9 @@ function App() {
 
   return (
     <div>
-    <SearchBar setResults={setResults}/>
+    <SearchBar setResults={setResults}/> 
     <SearchResults results={results}/>
+    <Products/>
     </div>
       )
       }

@@ -1,5 +1,7 @@
 import "../components/SearchResults.css";
+import {useNavigate} from "react-router-dom";
 const SearchResults = ({results}) => {
+    const navigate =useNavigate();
     
 
   return (
@@ -12,7 +14,7 @@ const SearchResults = ({results}) => {
           })}
         </div><div className='results'>
           {results.map((result, id) => {
-              return <div className="dev" key={id}>{result.title}</div>;
+              return <div className="dev" onClick={()=>navigate("/Product")} key={id}>{result.title}</div>;
           })}
       </div>
       
