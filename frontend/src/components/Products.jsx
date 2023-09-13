@@ -1,9 +1,8 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import './Products.css'
+import '../components/Products.css'
 import { Link } from "react-router-dom";
-import SearchBar from './components/SearchBar';
 
 const Products = ({results}) => {
     const responsive = {
@@ -26,7 +25,7 @@ const Products = ({results}) => {
       };
   return (
     <>
-    <Link to={SearchBar}>Go To Home Page</Link>
+    <Link to={"SearchBar"}>Go To Home Page</Link>
    <div className='container'>
       <Carousel responsive={responsive}>
         <div className='card'>
